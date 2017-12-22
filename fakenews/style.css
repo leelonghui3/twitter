@@ -3,23 +3,51 @@
 }
 
 .trump_big_pic {
-  padding-top: 25px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-  padding-bottom: 25px;
+  padding-bottom: 50px;
+  padding-top: 50px;
   height: 500px;
   background: url(images/Donald_Trump.jpg) fixed no-repeat center center;
   background-size: cover;
   opacity : 0.7;
 }
 
+.title, .byline {
+  color: #f7f7f7;
+}
+
 body {
   background-color: #f7f7f7;
 }
 
+p {
+  font-size: 18px;
+}
+
 #tweet_timeline {
   align-self: center;
-  width: 98%;
+  max-width: 100%;
 }
 
 .max-size {
   max-width: 1000px;
+}
+
+.chart-wrapper {
+  border:1px solid #D3D3D3;
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+.tweet_wrapper {
+  margin: 20px auto;
+}
+
+footer {
+  max-width: 100%;
+  background-color: #a6dba0;
+  padding: 30px;
+}
+
+footer p {
+  font-family: "Times New Roman";
 }

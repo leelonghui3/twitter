@@ -5,12 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>#fakenews: How news reports on Trump heated up discussion on Twitter?</title>
+
+  <!-- Load jQuery -->
   <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-  <link rel="stylesheet" href="uikit/css/uikit.almost-flat.min.css">
+
+  <!-- Load UiKit & custom CSS -->
   <link rel="stylesheet" href="style.css" type="text/css">
   <script type="text/javascript" src="uikit/js/uikit.min.js"></script>
-  <link href="c3/c3.css" rel="stylesheet" type="text/css">
-  <script src="c3/d3.min.js"></script>
+  <link rel="stylesheet" href="uikit/css/uikit.almost-flat.min.css">
+
+  <!-- Load Highcharts library -->
   <script type="text/javascript" src="highcharts/highcharts.js"></script>
   <script type="text/javascript" src="highcharts/modules/exporting.js"></script>
   <script type="text/javascript" src="highcharts/modules/series-label.js"></script>
@@ -18,215 +22,365 @@
   <script type="text/javascript" src="highcharts/modules/wordcloud.js"></script>
 </head>
 
-<body>
-  <!-- TODO: Fix header -->
-  <div class="uk-section-default">
-    <div class="trump_big_pic uk-background-contain uk-height-medium uk-width-large uk-flex uk-flex-center uk-flex-middle uk-light">
-      <div class="container uk-light">
-        <h1>#fakenews: </br> How reports on Trump heated up discussion on Twitter?</h1>
-        <h4>By <i>Lee Long Hui</i></h4>
+<body class="uk-responsive-width uk-resposive-height">
+
+  <div class="header uk-margin-bottom">
+    <div class="trump_big_pic uk-background-contain uk-height-medium uk-width-large uk-flex uk-flex-center uk-flex-middle uk-hidden-small uk-hidden-medium">
+      <div class="uk-container">
+        <h1 class="title">#fakenews: </br> How reports on Trump heated up discussion on Twitter?</h1>
+        <h4 class="byline">By <i>Lee Long Hui</i></h4>
       </div>
+    </div>
+
+    <div class="uk-container">
+      <div class="uk-hidden-large">
+        <h1 class="uk-article-title">#fakenews: </br> How reports on Trump heated up discussion on Twitter?</h1>
+        <h4>By <i>Lee Long Hui</i></h4>
+        <hr>
+      </div>
+    </div>
+    <div class="uk-align-right uk-hidden-small uk-hidden-medium">
+      <h6>Photo by © User:<a href="https://commons.wikimedia.org/wiki/User:MichaelVadon" target="_blank">Michael Vadon</a> / <a href="https://eml.wikipedia.org/wiki/PP" target="_blank">Wikipedia Emilian-Romagnol</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>, <a href="https://eml.wikipedia.org/wiki/Donald_Trump#/media/File:Donald_J._Trump_at_Marriott_Marquis_NYC_September_7th_2016_04.jpg" target="_blank">Link</a></h6>
     </div>
   </div>
 
-  <div class="uk-container-center max-size">
+  <div class="uk-margin-large-top uk-container-center max-size">
 
-    <p>Fake news has emerged to become significant issues since the Brexit referendum and subsequently the US presidential elections in 2016. There was saying that such misinformation had influenced the outcome of the two vital polls to a certain degree.</p>
+    <article class="uk-article">
 
-    <p>Now “fake news” is not only a word that referring to news which is factually wrong that deliberately misinforms the public, but it’s also a word frequently used by US president Donald Trump to criticise certain media organisations and news reports.</p>
+      <p class="uk-article-lead">Fake news has emerged to become significant issues since the Brexit referendum and subsequently the US presidential elections in 2016. There was saying that such misinformation had influenced the outcome of the two vital polls to a certain degree.</p>
 
-    <p>Thanks to Trump, the usage of the term “fake news” had increased by 365% since 2016, even before he was inaugurated in January this year, according to Collins Dictionary’s lexicographers. As such, “Fake news” was named as <a href="https://www.theguardian.com/books/2017/nov/02/fake-news-is-very-real-word-of-the-year-for-2017"
-        target="_blank">the word of the year</a> in 2017.</p>
+      <p>Now “fake news” is not only a word that referring to news which is factually wrong that deliberately misinforms the public, but it’s also a word frequently used by US president Donald Trump to criticise certain media organisations and news reports.</p>
 
-    <p>The recognition was mostly due to Trump’s hostile relationship with some prominent media organisations, such as New York Times and CNN. He often fires against those media outlets spreading the fake news for reports that he disagrees.</p>
+      <p>Thanks to Trump, the usage of the term “fake news” had increased by 365% since 2016, even before he was inaugurated in January this year, according to Collins Dictionary’s lexicographers. As such, “Fake news” was named as <a href="https://www.theguardian.com/books/2017/nov/02/fake-news-is-very-real-word-of-the-year-for-2017"
+          target="_blank">the word of the year</a> in 2017.</p>
 
-    <p>As a Twitter’s heavy user, Trump frequently trains his gun on those reports via his personal Twitter account, besides publicly criticising the reporters from those news organisations for allegedly producing fake news in press conferences.</p>
+      <p>The recognition was mostly due to Trump’s hostile relationship with some prominent media organisations, such as New York Times and CNN. He often fires against those media outlets spreading the fake news for reports that he disagrees.</p>
 
-    <p>The term has become a trend and a popular hashtag among Twitter users. This report is to analyse how Twitter users engage with #fakenews in a specific timeframe.</p>
+      <p>As a Twitter’s heavy user, Trump frequently trains his gun on those reports via his personal Twitter account, besides publicly criticising the reporters from those news organisations for allegedly producing fake news in press conferences.</p>
 
-    <h2>Methodology</h2>
+      <p>The term has become a trend and a popular hashtag among Twitter users. This report is to analyse how Twitter users engage with #fakenews in a specific timeframe.</p>
 
-    <p>The sample of Twitter data containing the word “fake news” and “fakenews” hashtag was collected by using Twitter streaming application programming interface (API) script written in Python between 5pm GMT December 9 and 12am GMT December 14, 2017.</p>
+      <h2>Methodology</h2>
 
-    <p>The script was written so that it could distinguish and scrape truncated original tweets, the full text of retweets and quoted tweets (retweets with users’ comment), besides other information, for more precise analysis result.</p>
+      <p>The sample of Twitter data containing the word “fake news” and “fakenews” hashtag was collected by using Twitter streaming application programming interface (API) script written in Python between 5pm GMT December 9 and 12am GMT December 14, 2017.</p>
 
-    <p>The analysis focuses on understanding the peaks of the tweets timeline, popular retweets and quoted tweets, percentage of verified users, identifying bots among top 10 tweeters, sentiments etc.</p>
+      <p>The script was written so that it could distinguish and scrape truncated original tweets, the full text of retweets and quoted tweets (retweets with users’ comment), besides other information, for more precise analysis result.</p>
 
-    <h2>Findings</h2>
+      <p>The analysis focuses on understanding the peaks of the tweets timeline, popular retweets and quoted tweets, percentage of verified users, identifying bots among top 10 tweeters, sentiments etc.</p>
 
-    <p>Trump’s tweets against certain media organisations had driven the usage of the fakenews hashtag and “fake news” term.</p>
+      <h2>Findings</h2>
 
-    <p>More than 556,000 Twitter users had tweeted over 150 million tweets that carried #fakenews or “fake news” in 103 hours of scrapping.</p>
+      <p>Trump’s tweets against certain media organisations had driven the usage of the fakenews hashtag and “fake news” term.</p>
 
-    <p>Of all the tweets, close to three-quarters of the tweets were retweets. 8.6% were quoted tweets, which were retweets with original text or opinion of the users, while the remaining 16.52% were original tweets.</p>
+      <p>More than 556,000 Twitter users had tweeted over 150 million tweets that carried #fakenews or “fake news” in 103 hours of scrapping.</p>
 
-    <p>Lower than 10% of the users who tweeted in the range of the scrapping period were verified users.</p>
+      <p>Of all the tweets, close to three-quarters of the tweets were retweets. 8.6% were quoted tweets, which were retweets with original text or opinion of the users, while the remaining 16.52% were original tweets.</p>
 
-    <p>Less than half of the top ten most active tweeters were genuine users, whom among others were using web services for retweet purpose.</p>
+      <p>Lower than 10% of the users who tweeted in the range of the scrapping period were verified users.</p>
 
-    <p>More than 550,000 users tweeted less than 50 tweets, while two users tweeted more than 400 times during the time span.</p>
+      <p>Less than half of the top ten most active tweeters were genuine users, whom among others were using web services for retweet purpose.</p>
 
-    <h2>Trump pushes #fakenews tweets volume to the peak</h2>
+      <p>More than 550,000 users tweeted less than 50 tweets, while two users tweeted more than 400 times during the time span.</p>
 
-    <div id="tweet_timeline"></div>
+    </article>
 
-    <p>The fakenews hashtag was trending hot on Twitter and had drastically increased several times during the observation period. 556,007 users had tweeted 1,548,139 tweets that carried #fakenews or “fakenews”. The amount only represents approximately 40%
-      of the total tweets due to the limitation of the streaming API.</p>
+    <hr>
 
-    <p>They were all driven by Trump’s tweet against a journalist and some media organisations.</p>
-
-    <p>It reached the peak of 35,855 tweets on 9 December at 2300 UTC, after Trump hit out against Washington Post journalist Dave Weigel over a controversial tweet.</p>
-
-    <p>It started with Weigel posted a picture of Trump’s rally in an arena with many empty seats on Twitter. However, he deleted the post after realising that the venue had not yet filled up.</p>
-
-    <p>It had prompted Trump to tweet, criticising Weigel and Washington Post as Weigel’s photo merely showing the arena before the rally started hours later. He also requested Weigel and Washington Post to apologise and retracted the “fake news”.</p>
-
-    <blockquote class="twitter-tweet" data-lang="en">
-      <p lang="en" dir="ltr">.<a href="https://twitter.com/daveweigel?ref_src=twsrc%5Etfw">@DaveWeigel</a> <a href="https://twitter.com/washingtonpost?ref_src=twsrc%5Etfw">@WashingtonPost</a> put out a phony photo of an empty arena hours before I arrived @ the venue, w/ thousands
-        of people outside, on their way in. Real photos now shown as I spoke. Packed house, many people unable to get in. Demand apology &amp; retraction from FAKE NEWS WaPo! <a href="https://t.co/XAblFGh1ob">pic.twitter.com/XAblFGh1ob</a></p>&mdash;
-      Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/939616077356642304?ref_src=twsrc%5Etfw">December 9, 2017</a></blockquote>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-    <p>Weigel tweeted to apologise publicly for his mistake, clarifying that it was merely his personal tweet and not a story for Washington Post. But Trump issued second tweet saying that Weigel had admitted he posted a fake photo, adding that Weigel should
-      be fired.</p>
-
-    <p>Trump had tweeted seven tweets contain “fake news” during the time frame. One tweet lamented that the “fake news media” did not report on the prosperity of the US economy (10 Dec 1300 UTC), while another one slamming fake news media is “a stain on
-      America” (10 Dec 2100 UTC).</p>
-
-    <p>Statistic showed that 98.50% out of the 556,007 users tweeted less than 20 tweets, while two users tweeted more than 400 times within those days.</p>
-
-    <div id="tweet_histogram"></div>
-
-    <h2>Quoted tweets and Retweets</h2>
-
-    <p>In 2015, Twitter added the “quote tweet” feature where it similar to retweet, but it allowed the user to add a comment to a retweet.</p>
-
-    <p>It’s crucial to differentiate quoted tweet and retweet to analyse the sentiment. It is because users who retweet a particular tweet are often being seen as persons who agree with the content and hence retweet to reinforce their stands and opinions.</p>
-
-    <p>Nevertheless, users who quote a specific tweet may not necessarily agree with the argument of the quote tweet as their opinion and comment can be totally against the argument of the quoted tweet. </p>
-
-    <p>Out of the the total 1,548,140 tweets, 1,159,294 were retweets, 255,704 were original tweets while the remaining 133,142 were quoted tweets.</p>
-
-    <div id="retweet_pie"></div>
-
-    <h2>Most retweeted tweet went to Trump</h2>
-
-    <p>Trump’s tweet on the allegation of sexual harassment against him topped the most retweeted list with 34,250 retweets.</p>
-
-    <p>He was responding to <a href="https://edition.cnn.com/2017/12/11/politics/female-democrats-send-letter-trump-investigation/index.html" target="_blank">a group of Democratic congresspersons’ call</a> to investigate an allegation of sexual misconduct
-      against him.</p>
-
-    <p>The call came on the same day that several women held a press conference in New York, accusing Trump of sexual misconduct when he was a businessperson, CNN reported.</p>
-
-    <p>However, Trump responded to the call via Twitter, describing the allegation as “fake news” as he didn’t know and had never met the group of women.</p>
-
-    <blockquote class="twitter-tweet" data-lang="en">
-      <p lang="en" dir="ltr">Despite thousands of hours wasted and many millions of dollars spent, the Democrats have been unable to show any collusion with Russia - so now they are moving on to the false accusations and fabricated stories of women who I don’t know and/or have
-        never met. FAKE NEWS!</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/940554567414091776?ref_src=twsrc%5Etfw">December 12, 2017</a></blockquote>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-    <h2>Trump’s tweet was the most quoted tweet too</h2>
-
-    <p>The most quoted tweet during the given period was also one of the tweets by Trump. It was the tweet that Trump fired against The New York Times on 11 December at 1400 UTC over a feature story titled <a href="https://www.nytimes.com/2017/12/09/us/politics/donald-trump-president.html?_r=0"
-        target="_blank">“Inside Trump’s Hour-by-hour Battle For Self-preservation”</a>.</p>
-
-    <p>He tweeted that the part of the article which claimed him to watching four to eight hours of television daily was wrong, adding that it was a “false story” and “bad reporting”.</p>
-
-    <blockquote class="twitter-tweet" data-lang="en">
-      <p lang="en" dir="ltr">Another false story, this time in the Failing <a href="https://twitter.com/nytimes?ref_src=twsrc%5Etfw">@nytimes</a>, that I watch 4-8 hours of television a day - Wrong! Also, I seldom, if ever, watch CNN or MSNBC, both of which I consider Fake
-        News. I never watch Don Lemon, who I once called the “dumbest man on television!” Bad Reporting.</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/940223974985871360?ref_src=twsrc%5Etfw">December 11, 2017</a></blockquote>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-    <p>The tweet was quoted 12,896 times and retweeted 31,800 times, but according to the comments in those quoted tweets, not all the users agreed to Trump.</p>
-
-    <h2>“We’re all ok in NYC”</h2>
-
-    <p>Some ironically pointed out that Trump concerned more about the New York Times’ story about him than the New York bombing case that happened the same day.</p>
-
-    <p>The American television programme “The Daily Show” quoted the tweet and said: “We're all ok in NYC thanks for asking”, sarcastically hinted that Trump did not care about the bombing case in New York.</p>
-
-    <p>The Daily Show’s tweet was retweeted 13,150 times, and it was the tenth most retweeted tweet during that period.</p>
-
-    <blockquote class="twitter-tweet" data-lang="en">
-      <p lang="en" dir="ltr">We&#39;re all ok in NYC thanks for asking! <a href="https://t.co/ERFd4fabAM">https://t.co/ERFd4fabAM</a></p>&mdash; The Daily Show (@TheDailyShow) <a href="https://twitter.com/TheDailyShow/status/940228141204852736?ref_src=twsrc%5Etfw">December 11, 2017</a></blockquote>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-    <h2>Apologise! Trump told</h2>
-
-    <p>Although Trump’s tweets were dominating the top retweets list, there was another retweet that criticised Trump stood out and became the ninth most retweet.</p>
-
-    <p>President of the Center for American Progress Neera Tanden chided Trump for lying and misleading the country over the #fakenews saga. She demanded him to apologise for 10,000 times and asked those who thought the same to retweet.</p>
-
-    <p>Tanden gained 24,064 retweets for her tweet. It showed that there were significant number of netizens who did not agree with Trump over the fake news issue.</p>
-
-    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I demand an apology for the 10,000 times <a href="https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw">@realDonaldTrump</a> has lied and misled the country.  Retweet if you think he should apologize. <a href="https://t.co/3WzV2Csvez">https://t.co/3WzV2Csvez</a></p>&mdash; Neera Tanden🖖🏼 (@neeratanden) <a href="https://twitter.com/neeratanden/status/939638781170159616?ref_src=twsrc%5Etfw">December 9, 2017</a></blockquote>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-    <h2>Who are the top ten tweeters?</h2>
-
-    <p>The top ten tweeters were a mix of real users and bot. A study of their user profiles, tweet volume, and by examining their activities with online tool <a href="https://botometer.iuni.iu.edu/#!/" target="_blank">Botometer</a>, found out that six of them were bot while four were genuine users.</p>
-
-    <h3>Bots</h3>
-
-    <p>The bot Twitter users were showing unusual activity trends: They have a massive amount of retweets, promoting the products repeatedly, a significant amount of the same quoted tweet by tagging different users, have an enormous volume of tweets, and can tweet within a small interval of time.</p>
-
-    <p>For example, the second top tweeter <a href="https://twitter.com/BudBiddle" target="_blank">@BudBiddle</a> was identified as a bot. The user had tweeted 410 times within the 103 hours. Although most of his tweets were original tweets (253 tweets), the user kept promoting a housing property, with posts that carried the term “fake news”, by tagging different accounts, even account belongs to Trump.</p>
-
-    <h3>Top tweeter</h3>
-
-    <p>But the top twitter MMAfanzine, with 421 tweets within those days, appears to be a genuine user. A closer look at the account found that it belongs to a <a href="https://mma-insiders.com/" target="_blank">mixed martial arts blog</a> and it is managed by a person called Gerry O’Neill.</p>
-
-    <div class="uk-width-large-1-2 uk-width-medium-1-1 uk-width-small-1-1 uk-container-center uk-scrollable-text uk-scrollable-box" style="height:400px;">
-      <a class="twitter-timeline" href="https://twitter.com/MMAfanzine?ref_src=twsrc%5Etfw">Tweets by MMAfanzine</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <div class="uk-margin-large-top">
+      <ul class="uk-tab uk-tab-grid uk-flex-center" data-uk-tab="{connect:'#analysis', animation: 'uk-animation-fade'}">
+        <li class="uk-width-1-3 uk-active"><a href="">#fakenews trend timeline</a></li>
+        <li class="uk-width-1-3"><a href="">Retweets & quoted tweets</a></li>
+        <li class="uk-width-1-3"><a href="">Top tweeters & Bot</a></li>
+      </ul>
     </div>
 
-    <p>The account was created in January 2017, but it already had close to 13,000 tweets, mostly promoting mixed martial arts and the blog. It is believed that the user is using an If This Then That (IFTTT) service to automate the tweets.</p>
+    <ul id="analysis" class="uk-switcher">
+      <li>
+        <div class="uk-container uk-margin-top">
 
-    <p>The account has 418 original tweets and three retweets during the period. But the tweets were unrelated to Trump’s tweets.  Instead, it was promoting a post titled “Conor McGregor and Donald Trump- Why Fake News won’t Let You Slide” of its blog by tagging different users in each tweet.</p>
+          <article class="uk-article">
+            <h2 class="uk-article-title">Trump pushes #fakenews tweets volume to the peak</h2>
+          </article>
 
-    <h2>Word Cloud</h2>
+          <div class="chart-wrapper">
+            <div id="tweet_timeline"></div>
+          </div>
 
-    <p>Undoubtedly Trump took the spotlight in the findings as the word “trump” was the most frequent word appears in the top 80 retweets.</p>
+          <article class="uk-article">
 
-    <div id="tweetcloud"></div>
+            <p class="uk-article-lead">The fakenews hashtag was trending hot on Twitter and had drastically increased several times during the observation period. 556,007 users had tweeted 1,548,139 tweets that carried #fakenews or “fakenews”. The amount only represents approximately
+              40% of the total tweets due to the limitation of the streaming API.</p>
 
-    <h2>Geolocation</h2>
+            <p>They were all driven by Trump’s tweet against a journalist and some media organisations.</p>
 
-    <p>A geo-tagged tweet will provide information of at what place the tweet was sent based on coordinates, while “location” can be set by the user. It could be anything besides location, and it is not based on coordinates.</p>
+            <p>It reached the peak of 35,855 tweets on 9 December at 2300 UTC, after Trump hit out against Washington Post journalist Dave Weigel over a controversial tweet.</p>
 
-    <p>There were only about one-third of the users enabled geo-tagged and share their “location” respectively. Hence it was hard to track the exact location of most of the users and where the tweets were sent. Some user even set their location as “Behind the screen” while most of them just leave it blank.</p>
+            <p>It started with Weigel posted a picture of Trump’s rally in an arena with many empty seats on Twitter. However, he deleted the post after realising that the venue had not yet filled up.</p>
 
-    <ul class="uk-grid">
-      <li class="uk-width-small-1-1 uk-width-medium-1-2 uk-width-large-1-2">
-        <div id="geo_pie"></div>
+            <p>It had prompted Trump to tweet, criticising Weigel and Washington Post as Weigel’s photo merely showing the arena before the rally started hours later. He also requested Weigel and Washington Post to apologise and retracted the “fake news”.</p>
+
+          </article>
+
+          <div class="tweet-wrapper">
+          <blockquote class="twitter-tweet tw-align-center" data-lang="en">
+            <p lang="en" dir="ltr">.<a href="https://twitter.com/daveweigel?ref_src=twsrc%5Etfw">@DaveWeigel</a> <a href="https://twitter.com/washingtonpost?ref_src=twsrc%5Etfw">@WashingtonPost</a> put out a phony photo of an empty arena hours before I arrived @ the venue,
+              w/ thousands of people outside, on their way in. Real photos now shown as I spoke. Packed house, many people unable to get in. Demand apology &amp; retraction from FAKE NEWS WaPo! <a href="https://t.co/XAblFGh1ob">pic.twitter.com/XAblFGh1ob</a></p>&mdash;
+            Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/939616077356642304?ref_src=twsrc%5Etfw">December 9, 2017</a></blockquote>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+          <article class="uk-article">
+
+            <p>Weigel tweeted to apologise publicly for his mistake, clarifying that it was merely his personal tweet and not a story for Washington Post. But Trump issued second tweet saying that Weigel had admitted he posted a fake photo, adding that Weigel
+              should be fired.</p>
+
+            <p>Trump had tweeted seven tweets contain “fake news” during the time frame. One tweet lamented that the “fake news media” did not report on the prosperity of the US economy (10 Dec 1300 UTC), while another one slamming fake news media is “a
+              stain on America” (10 Dec 2100 UTC).</p>
+
+            <p>Statistic showed that 98.50% out of the 556,007 users tweeted less than 20 tweets, while two users tweeted more than 400 times within those days.</p>
+          </article>
+          <div class="chart-wrapper">
+            <div id="tweet_histogram"></div>
+          </div>
+
+          <!-- <ul class="uk-tab uk-tab-grid uk-flex-center uk-tab-bottom" data-uk-tab="{connect:'#analysis', animation: 'uk-animation-fade'}">
+            <li class="uk-width-1-2"><a href="" data-uk-switcher-item="1">Retweets & quoted tweets</a></li>
+            <li class="uk-width-1-2"><a href="" data-uk-switcher-item="2">Retweets & quoted tweets</a></li>
+          </ul> -->
+        </div>
       </li>
-      <li class="uk-width-small-1-1 uk-width-medium-1-2 uk-width-large-1-2">
-        <div id="location_pie"></div>
+
+      <li>
+        <div class="uk-container uk-margin-top">
+
+          <article class="uk-article">
+
+            <h2 class="uk-article-title">Retweets and Quoted tweets</h2>
+
+            <p class="uk-article-lead">In 2015, Twitter added the “quote tweet” feature where it similar to retweet, but it allowed the user to add a comment to a retweet.</p>
+
+            <p>It’s crucial to differentiate quoted tweet and retweet to analyse the sentiment. It is because users who retweet a particular tweet are often being seen as persons who agree with the content and hence retweet to reinforce their stands and
+              opinions.</p>
+
+            <p>Nevertheless, users who quote a specific tweet may not necessarily agree with the argument of the quote tweet as their opinion and comment can be totally against the argument of the quoted tweet. </p>
+
+            <p>Out of the the total 1,548,140 tweets, 1,159,294 were retweets, 255,704 were original tweets while the remaining 133,142 were quoted tweets.</p>
+          </article>
+
+          <div class="chart-wrapper">
+            <div id="retweet_pie"></div>
+          </div>
+
+          <article class="article">
+
+            <h2>Most retweeted tweet went to Trump</h2>
+
+            <p>Trump’s tweet on the allegation of sexual harassment against him topped the most retweeted list with 34,250 retweets.</p>
+
+            <p>He was responding to <a href="https://edition.cnn.com/2017/12/11/politics/female-democrats-send-letter-trump-investigation/index.html" target="_blank">a group of Democratic congresspersons’ call</a> to investigate an allegation of sexual misconduct
+              against him.</p>
+
+            <p>The call came on the same day that several women held a press conference in New York, accusing Trump of sexual misconduct when he was a businessperson, CNN reported.</p>
+
+            <p>However, Trump responded to the call via Twitter, describing the allegation as “fake news” as he didn’t know and had never met the group of women.</p>
+
+          </article>
+
+          <div class="tweet-wrapper">
+            <blockquote class="twitter-tweet tw-align-center" data-lang="en">
+              <p lang="en" dir="ltr">Despite thousands of hours wasted and many millions of dollars spent, the Democrats have been unable to show any collusion with Russia - so now they are moving on to the false accusations and fabricated stories of women who I don’t know
+                and/or have never met. FAKE NEWS!</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/940554567414091776?ref_src=twsrc%5Etfw">December 12, 2017</a></blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+
+          <article class="article">
+
+            <h2>Trump’s tweet was the most quoted tweet too</h2>
+
+            <p>The most quoted tweet during the given period was also one of the tweets by Trump. It was the tweet that Trump fired against The New York Times on 11 December at 1400 UTC over a feature story titled <a href="https://www.nytimes.com/2017/12/09/us/politics/donald-trump-president.html?_r=0"
+                target="_blank">“Inside Trump’s Hour-by-hour Battle For Self-preservation”</a>.</p>
+
+            <p>He tweeted that the part of the article which claimed him to watching four to eight hours of television daily was wrong, adding that it was a “false story” and “bad reporting”.</p>
+
+          </article>
+
+          <div class="tweet-wrapper">
+            <blockquote class="twitter-tweet tw-align-center" data-lang="en">
+              <p lang="en" dir="ltr">Another false story, this time in the Failing <a href="https://twitter.com/nytimes?ref_src=twsrc%5Etfw">@nytimes</a>, that I watch 4-8 hours of television a day - Wrong! Also, I seldom, if ever, watch CNN or MSNBC, both of which I consider
+                Fake News. I never watch Don Lemon, who I once called the “dumbest man on television!” Bad Reporting.</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/940223974985871360?ref_src=twsrc%5Etfw">December 11, 2017</a></blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+
+          <article class="uk-article">
+
+            <p>The tweet was quoted 12,896 times and retweeted 31,800 times, but according to the comments in those quoted tweets, not all the users agreed to Trump.</p>
+
+            <h2>“We’re all ok in NYC”</h2>
+
+            <p>Some ironically pointed out that Trump concerned more about the New York Times’ story about him than the New York bombing case that happened the same day.</p>
+
+            <p>The American television programme “The Daily Show” quoted the tweet and said: “We're all ok in NYC thanks for asking”, sarcastically hinted that Trump did not care about the bombing case in New York.</p>
+
+            <p>The Daily Show’s tweet was retweeted 13,150 times, and it was the tenth most retweeted tweet during that period.</p>
+
+          </article>
+
+          <div class="tweet-wrapper">
+            <blockquote class="twitter-tweet tw-align-center" data-lang="en">
+              <p lang="en" dir="ltr">We&#39;re all ok in NYC thanks for asking! <a href="https://t.co/ERFd4fabAM">https://t.co/ERFd4fabAM</a></p>&mdash; The Daily Show (@TheDailyShow) <a href="https://twitter.com/TheDailyShow/status/940228141204852736?ref_src=twsrc%5Etfw">December 11, 2017</a></blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+
+          <article class="uk-article">
+
+            <h2>Apologise! Trump told</h2>
+
+            <p>Although Trump’s tweets were dominating the top retweets list, there was another retweet that criticised Trump stood out and became the ninth most retweet.</p>
+
+            <p>President of the Center for American Progress Neera Tanden chided Trump for lying and misleading the country over the #fakenews saga. She demanded him to apologise for 10,000 times and asked those who thought the same to retweet.</p>
+
+            <p>Tanden gained 24,064 retweets for her tweet. It showed that there were significant number of netizens who did not agree with Trump over the fake news issue.</p>
+
+          </article>
+
+          <div class="tweet-wrapper">
+            <blockquote class="twitter-tweet tw-align-center" data-lang="en">
+              <p lang="en" dir="ltr">I demand an apology for the 10,000 times <a href="https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw">@realDonaldTrump</a> has lied and misled the country. Retweet if you think he should apologize. <a href="https://t.co/3WzV2Csvez">https://t.co/3WzV2Csvez</a></p>&mdash;
+              Neera Tanden🖖🏼 (@neeratanden) <a href="https://twitter.com/neeratanden/status/939638781170159616?ref_src=twsrc%5Etfw">December 9, 2017</a></blockquote>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+
+          <!-- <ul class="uk-tab uk-tab-grid uk-flex-center uk-tab-bottom" data-uk-tab="{connect:'#analysis', animation: 'uk-animation-fade'}">
+            <li class="uk-width-1-2"><a href="" data-uk-switcher-item="0">#fakenews trend timeline</a></li>
+            <li class="uk-width-1-2"><a href="" data-uk-switcher-item="2">Retweets & quoted tweets</a></li>
+          </ul> -->
+
+        </div>
+      </li>
+
+      <li>
+        <div class="uk-container uk-margin-top">
+
+          <article class="uk-article">
+
+            <h2>Who are the top ten tweeters?</h2>
+
+            <p>The top ten tweeters were a mix of real users and bot. A study of their user profiles, tweet volume, and by examining their activities with online tool <a href="https://botometer.iuni.iu.edu/#!/" target="_blank">Botometer</a>, found out that
+              six of them were bot while four were genuine users.</p>
+
+            <h3>Bots</h3>
+
+            <p>The bot Twitter users were showing unusual activity trends: They have a massive amount of retweets, promoting the products repeatedly, a significant amount of the same quoted tweet by tagging different users, have an enormous volume of tweets,
+              and can tweet within a small interval of time.</p>
+
+            <p>For example, the second top tweeter <a href="https://twitter.com/BudBiddle" target="_blank">@BudBiddle</a> was identified as a bot. The user had tweeted 410 times within the 103 hours. Although most of his tweets were original tweets (253
+              tweets), the user kept promoting a housing property, with posts that carried the term “fake news”, by tagging different accounts, even account belongs to Trump.</p>
+
+            <h3>Top tweeter</h3>
+
+            <p>But the top twitter MMAfanzine, with 421 tweets within those days, appears to be a genuine user. A closer look at the account found that it belongs to a <a href="https://mma-insiders.com/" target="_blank">mixed martial arts blog</a> and it
+              is managed by a person called Gerry O’Neill.</p>
+
+          </article>
+
+          <div class="uk-width-large-1-2 uk-width-medium-1-1 uk-width-small-1-1 uk-container-center uk-scrollable-text uk-scrollable-box" style="height:400px;">
+            <a class="twitter-timeline" href="https://twitter.com/MMAfanzine?ref_src=twsrc%5Etfw">Tweets by MMAfanzine</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+
+          <article class="uk-article">
+
+            <p>The account was created in January 2017, but it already had close to 13,000 tweets, mostly promoting mixed martial arts and the blog. It is believed that the user is using an If This Then That (IFTTT) service to automate the tweets.</p>
+
+            <p>The account has 418 original tweets and three retweets during the period. But the tweets were unrelated to Trump’s tweets. Instead, it was promoting a post titled “Conor McGregor and Donald Trump- Why Fake News won’t Let You Slide” of its
+              blog by tagging different users in each tweet.</p>
+
+          </article>
+
+          <article class="uk-article">
+
+            <h2>Word Cloud</h2>
+
+            <p>Undoubtedly Trump took the spotlight in the findings as the word “trump” was the most frequent word appears in the top 80 retweets.</p>
+
+          </article>
+
+          <div class="chart-wrapper">
+            <div id="tweetcloud"></div>
+          </div>
+
+          <article class="uk-article">
+
+            <h2>Geolocation</h2>
+
+            <p>A geo-tagged tweet will provide information of at what place the tweet was sent based on coordinates, while “location” can be set by the user. It could be anything besides location, and it is not based on coordinates.</p>
+
+            <p>There were only about one-third of the users enabled geo-tagged and share their “location” respectively. Hence it was hard to track the exact location of most of the users and where the tweets were sent. Some user even set their location as
+              “Behind the screen” while most of them just leave it blank.</p>
+
+          </article>
+
+          <div class="chart-wrapper">
+            <ul class="uk-grid">
+              <li class="uk-width-small-1-1 uk-width-medium-1-2 uk-width-large-1-2">
+                <div id="geo_pie"></div>
+              </li>
+              <li class="uk-width-small-1-1 uk-width-medium-1-2 uk-width-large-1-2">
+                <div id="location_pie"></div>
+              </li>
+            </ul>
+          </div>
+
+          <article class="uk-article">
+
+            <h2>Conclusion</h2>
+
+            <p>The use of the term “fake news” has been polarised by Trump on Twitter as he alone determined the trend of #fakenews on the social media platform.</p>
+
+            <p>Further research could be done by surveying the perception of the public to determine whether Trump had eroded or polarised their confidence in mainstream media.</p>
+
+            <p>But the more worrying trend would be the massive bots or fake users on Twitter who generate a lot of noise but lack of essential substance for a healthy debate on this subject matter.</p>
+
+            <p>Generating fake retweets and followers had become a business, and such noise could be loud enough to <a href="https://www.thebureauinvestigates.com/stories/2017-12-07/twitterbots" target="_blank">create political impact</a> as reported by
+              the Bureau of Investigative Journalism.</p>
+
+            <p>The trend also raised the concern of lawmakers, especially it involved state players. Last November, <a href="https://www.theverge.com/2017/11/1/16591646/facebook-senate-hearing-feinstein-russia-google-twitter" target="_blank">US Senator Dianne Feinstein</a>              told the lawyer for Twitter and other big tech companies that their social media platforms were being misused.</p>
+
+            <p>She asked those companies to do deal with this matter or else “we will”.</p>
+
+            <p>The study can be further developed by observing how would those companies deal with the political interference on the social media.</p>
+          </article>
+
+          <!-- <ul class="uk-tab uk-tab-grid uk-flex-center uk-tab-bottom" data-uk-tab="{connect:'#analysis', animation: 'uk-animation-fade'}">
+            <li class="uk-width-1-3"><a href="" data-uk-switcher-item="0">#fakenews trend timeline</a></li>
+            <li class="uk-width-1-3"><a href="" data-uk-switcher-item="1">Retweets & quoted tweets</a></li>
+          </ul> -->
+        </div>
+
       </li>
     </ul>
 
-    <h2>Conclusion</h2>
-
-    <p>The use of the term “fake news” has been polarised by Trump on Twitter as he alone determined the trend of #fakenews on the social media platform.</p>
-
-    <p>Further research could be done by surveying the perception of the public to determine whether Trump had eroded or polarised their confidence in mainstream media.</p>
-
-    <p>But the more worrying trend would be the massive bots or fake users on Twitter who generate a lot of noise but lack of essential substance for a healthy debate on this subject matter.</p>
-
-    <p>Generating fake retweets and followers had become a business, and such noise could be loud enough to <a href="https://www.thebureauinvestigates.com/stories/2017-12-07/twitterbots" target="_blank">create political impact</a> as reported by the Bureau of Investigative Journalism.</p>
-
-    <p>The trend also raised the concern of lawmakers, especially it involved state players. Last November, <a href="https://www.theverge.com/2017/11/1/16591646/facebook-senate-hearing-feinstein-russia-google-twitter" target="_blank">US Senator Dianne Feinstein</a> told the lawyer for Twitter and other big tech companies that their social media platforms were being misused.</p>
-
-    <p>She asked those companies to do deal with this matter or else “we will”.</p>
-
-    <p>The study can be further developed by observing how would those companies deal with the political interference on the social media.</p>
 
   </div>
+
+  <footer>
+    <ul class="uk-grid">
+      <li class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-3">
+        <p>Lee Long Hui is a freelance journalist and MA Digital Journalism student at Goldsmiths, University of London.</p>
+      </li>
+      <li class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-3"></li>
+      <li class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-3">
+        <p>Connect</p>
+      </li>
+    </ul>
+  </footer>
+
   <script type="text/javascript">
     Highcharts.setOptions({
       lang: {
         thousandsSep: ','
-      }
+      },
     });
     Highcharts.chart('tweet_timeline', {
       title: {
@@ -235,7 +389,7 @@
 
       credits: {
         text: 'Lee Long Hui',
-        href: 'https://twitter.com/leelonghui'
+        href: 'https://twitter.com/leelonghui',
       },
 
       xAxis: {
@@ -243,48 +397,48 @@
         title: {
           text: 'Date & Time (UTC)',
         },
-        gridLineWidth: 0
+        gridLineWidth: 0,
       },
 
       yAxis: {
         title: {
           text: null,
-        }
+        },
       },
 
       series: [{
         type: 'area',
         label: {
-          enabled: false
+          enabled: false,
         },
         name: 'Tweets',
         color: '#008837',
         fillOpacity: 0.1,
         data: [15400, 18584, 17327, 15954, 14245, {
             y: 26225,
-            id: 'annotationA'
+            id: 'annotationA',
           }, {
             y: 35855,
-            id: 'annotationB'
+            id: 'annotationB',
           }, 29148, 24012, 23636, 20948, 19229, 15649, 11387, 8751, 7223, 6511, 6682, 8628, 12399, {
             y: 22975,
-            id: 'annotationC'
+            id: 'annotationC',
           }, 25285, 24241, 23040, 20870, 17903, 15935, 16388, {
             y: 24882,
-            id: 'annotationD'
+            id: 'annotationD',
           }, 21472, 18286, 16749,
           14986, 13780, 13229, 9780, 7526, 6406, 5577, 4761, 4556, 5166, 6762, 9078, 13499, {
             y: 34429,
-            id: 'annotationE'
+            id: 'annotationE',
           },
           31268, 24817, 22854, 20975, 22115, 23795, 21179, 19722, 20722, 20167, 19309, 28348, 21989, 15560, 11153, 8671, 6613, 5534, 5451, 6007,
           7610, {
             y: 22898,
-            id: 'annotationF'
+            id: 'annotationF',
           },
           23292, 22643, 21155, 18747, 17129, 14872, 14047, 14486, 13356, 13129, 12157, 12263, 12120, 13529, 15082, 11676, 6762, 4609, 3624, 3159, 2920, 3549, 4540, 5247, {
             y: 22135,
-            id: 'annotationG'
+            id: 'annotationG',
           },
           14851, 10268, 9550, 10030, 8783, 7992, 8885,
           9111, 9851, 11167, 10667, 8646,
