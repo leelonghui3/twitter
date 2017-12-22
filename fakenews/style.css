@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+.trump_big_pic {
+  padding-top: 25px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+  padding-bottom: 25px;
+  height: 500px;
+  background: url(images/Donald_Trump.jpg) fixed no-repeat center center;
+  background-size: cover;
+  opacity : 0.7;
+}
+
+body {
+  background-color: #f7f7f7;
+}
+
+#tweet_timeline {
+  align-self: center;
+  width: 98%;
+}
+
+.max-size {
+  max-width: 1000px;
+}
