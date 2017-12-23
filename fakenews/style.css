@@ -32,7 +32,6 @@ p {
 
 .max-size {
   max-width: 1000px;
-  align: center;
 }
 
 .chart-wrapper {
@@ -62,4 +61,14 @@ footer p {
 .font_size {
   font-size: 18px;
   padding: 5px;
+}
+
+@import 'https://code.highcharts.com/css/highcharts.css';
+
+.highcharts-background {
+  fill: #f7f7f7;
+}
+
+.highcharts-root {
+    font-family: sans-serif;
 }
