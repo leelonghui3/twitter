@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="style.css" type="text/css">
   <script type="text/javascript" src="uikit/js/uikit.min.js"></script>
   <link rel="stylesheet" href="uikit/css/uikit.almost-flat.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Load Highcharts library -->
   <script type="text/javascript" src="highcharts/highcharts.js"></script>
@@ -24,27 +25,28 @@
 
 <body class="uk-responsive-width uk-resposive-height">
 
-  <div class="header uk-margin-bottom">
     <div class="trump_big_pic uk-background-contain uk-height-medium uk-width-large uk-flex uk-flex-center uk-flex-middle uk-hidden-small uk-hidden-medium">
       <div class="uk-container">
         <h1 class="title">#fakenews: </br> How reports on Trump heated up discussion on Twitter?</h1>
-        <h4 class="byline">By <i>Lee Long Hui</i></h4>
-      </div>
+        <h2 class="byline">By <i>Lee Long Hui</i></h2>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="How reports on Trump heated up #fakenews discussion on Twitter?" data-via="leelonghui" data-related="realDonaldTrump" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a href="https://twitter.com/leelonghui?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @leelonghui</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 
-    <div class="uk-container">
+    <div class="uk-container uk-container-center">
       <div class="uk-hidden-large">
         <h1 class="uk-article-title">#fakenews: </br> How reports on Trump heated up discussion on Twitter?</h1>
-        <h4>By <i>Lee Long Hui</i></h4>
+        <h2>By <i>Lee Long Hui</i></h2>
         <hr>
       </div>
     </div>
-    <div class="uk-align-right uk-hidden-small uk-hidden-medium">
-      <h6>Photo by © User:<a href="https://commons.wikimedia.org/wiki/User:MichaelVadon" target="_blank">Michael Vadon</a> / <a href="https://eml.wikipedia.org/wiki/PP" target="_blank">Wikipedia Emilian-Romagnol</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>, <a href="https://eml.wikipedia.org/wiki/Donald_Trump#/media/File:Donald_J._Trump_at_Marriott_Marquis_NYC_September_7th_2016_04.jpg" target="_blank">Link</a></h6>
-    </div>
   </div>
 
-  <div class="uk-margin-large-top uk-container-center max-size">
+  <div class="uk-align-right uk-hidden-small uk-hidden-medium">
+    <h6>Photo by © User:<a href="https://commons.wikimedia.org/wiki/User:MichaelVadon" target="_blank">Michael Vadon</a> / <a href="https://eml.wikipedia.org/wiki/PP" target="_blank">Wikipedia Emilian-Romagnol</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank">CC BY-SA 4.0</a>, <a href="https://eml.wikipedia.org/wiki/Donald_Trump#/media/File:Donald_J._Trump_at_Marriott_Marquis_NYC_September_7th_2016_04.jpg" target="_blank">Link</a></h6>
+  </div>
+
+  <div class="uk-margin-large-top max-size uk-container uk-container-center uk-margin-small-left uk-margin-small-right max-size">
 
     <article class="uk-article">
 
@@ -61,7 +63,7 @@
 
       <p>The term has become a trend and a popular hashtag among Twitter users. This report is to analyse how Twitter users engage with #fakenews in a specific timeframe.</p>
 
-      <h2>Methodology</h2>
+      <h2><strong>Methodology</strong></h2>
 
       <p>The sample of Twitter data containing the word “fake news” and “fakenews” hashtag was collected by using Twitter streaming application programming interface (API) script written in Python between 5pm GMT December 9 and 12am GMT December 14, 2017.</p>
 
@@ -69,19 +71,25 @@
 
       <p>The analysis focuses on understanding the peaks of the tweets timeline, popular retweets and quoted tweets, percentage of verified users, identifying bots among top 10 tweeters, sentiments etc.</p>
 
-      <h2>Findings</h2>
+      <h2><strong>Findings</strong></h2>
 
-      <p>Trump’s tweets against certain media organisations had driven the usage of the fakenews hashtag and “fake news” term.</p>
+      <ol type="1">
 
-      <p>More than 556,000 Twitter users had tweeted over 150 million tweets that carried #fakenews or “fake news” in 103 hours of scrapping.</p>
 
-      <p>Of all the tweets, close to three-quarters of the tweets were retweets. 8.6% were quoted tweets, which were retweets with original text or opinion of the users, while the remaining 16.52% were original tweets.</p>
 
-      <p>Lower than 10% of the users who tweeted in the range of the scrapping period were verified users.</p>
+      <li class="font_size">Trump’s tweets against certain media organisations had driven the usage of the fakenews hashtag and “fake news” term.</li>
 
-      <p>Less than half of the top ten most active tweeters were genuine users, whom among others were using web services for retweet purpose.</p>
+      <li class="font_size">More than 556,000 Twitter users had tweeted over 150 million tweets that carried #fakenews or “fake news” in 103 hours of scrapping.</li>
 
-      <p>More than 550,000 users tweeted less than 50 tweets, while two users tweeted more than 400 times during the time span.</p>
+      <li class="font_size">Of all the tweets, close to three-quarters of the tweets were retweets. 8.6% were quoted tweets, which were retweets with original text or opinion of the users, while the remaining 16.52% were original tweets.</li>
+
+      <li class="font_size">Lower than 10% of the users who tweeted in the range of the scrapping period were verified users.</li>
+
+      <li class="font_size">Less than half of the top ten most active tweeters were genuine users, whom among others were using web services for retweet purpose.</li>
+
+      <li class="font_size">More than 550,000 users tweeted less than 50 tweets, while two users tweeted more than 400 times during the time span.</li>
+
+      </ol>
 
     </article>
 
@@ -97,10 +105,10 @@
 
     <ul id="analysis" class="uk-switcher">
       <li>
-        <div class="uk-container uk-margin-top">
+        <div class="uk-container uk-margin-top uk-margin-bottom">
 
           <article class="uk-article">
-            <h2 class="uk-article-title">Trump pushes #fakenews tweets volume to the peak</h2>
+            <h2 class="uk-article-title"><strong>Trump pushes #fakenews tweets volume to the peak</strong></h2>
           </article>
 
           <div class="chart-wrapper">
@@ -144,19 +152,15 @@
             <div id="tweet_histogram"></div>
           </div>
 
-          <!-- <ul class="uk-tab uk-tab-grid uk-flex-center uk-tab-bottom" data-uk-tab="{connect:'#analysis', animation: 'uk-animation-fade'}">
-            <li class="uk-width-1-2"><a href="" data-uk-switcher-item="1">Retweets & quoted tweets</a></li>
-            <li class="uk-width-1-2"><a href="" data-uk-switcher-item="2">Retweets & quoted tweets</a></li>
-          </ul> -->
         </div>
       </li>
 
       <li>
-        <div class="uk-container uk-margin-top">
+        <div class="uk-container uk-margin-top uk-margin-bottom">
 
           <article class="uk-article">
 
-            <h2 class="uk-article-title">Retweets and Quoted tweets</h2>
+            <h2 class="uk-article-title"><strong>Retweets and Quoted tweets</strong></h2>
 
             <p class="uk-article-lead">In 2015, Twitter added the “quote tweet” feature where it similar to retweet, but it allowed the user to add a comment to a retweet.</p>
 
@@ -174,7 +178,7 @@
 
           <article class="article">
 
-            <h2>Most retweeted tweet went to Trump</h2>
+            <h2><strong>Most retweeted tweet went to Trump</strong></h2>
 
             <p>Trump’s tweet on the allegation of sexual harassment against him topped the most retweeted list with 34,250 retweets.</p>
 
@@ -196,7 +200,7 @@
 
           <article class="article">
 
-            <h2>Trump’s tweet was the most quoted tweet too</h2>
+            <h2><strong>Trump’s tweet was the most quoted tweet too</strong></h2>
 
             <p>The most quoted tweet during the given period was also one of the tweets by Trump. It was the tweet that Trump fired against The New York Times on 11 December at 1400 UTC over a feature story titled <a href="https://www.nytimes.com/2017/12/09/us/politics/donald-trump-president.html?_r=0"
                 target="_blank">“Inside Trump’s Hour-by-hour Battle For Self-preservation”</a>.</p>
@@ -216,7 +220,7 @@
 
             <p>The tweet was quoted 12,896 times and retweeted 31,800 times, but according to the comments in those quoted tweets, not all the users agreed to Trump.</p>
 
-            <h2>“We’re all ok in NYC”</h2>
+            <h2><strong>“We’re all ok in NYC”</strong></h2>
 
             <p>Some ironically pointed out that Trump concerned more about the New York Times’ story about him than the New York bombing case that happened the same day.</p>
 
@@ -234,7 +238,7 @@
 
           <article class="uk-article">
 
-            <h2>Apologise! Trump told</h2>
+            <h2><strong>Apologise! Trump told</strong></h2>
 
             <p>Although Trump’s tweets were dominating the top retweets list, there was another retweet that criticised Trump stood out and became the ninth most retweet.</p>
 
@@ -251,20 +255,15 @@
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
 
-          <!-- <ul class="uk-tab uk-tab-grid uk-flex-center uk-tab-bottom" data-uk-tab="{connect:'#analysis', animation: 'uk-animation-fade'}">
-            <li class="uk-width-1-2"><a href="" data-uk-switcher-item="0">#fakenews trend timeline</a></li>
-            <li class="uk-width-1-2"><a href="" data-uk-switcher-item="2">Retweets & quoted tweets</a></li>
-          </ul> -->
-
         </div>
       </li>
 
       <li>
-        <div class="uk-container uk-margin-top">
+        <div class="uk-container uk-margin-top uk-margin-bottom">
 
           <article class="uk-article">
 
-            <h2>Who are the top ten tweeters?</h2>
+            <h2><strong>Who are the top ten tweeters?</strong></h2>
 
             <p>The top ten tweeters were a mix of real users and bot. A study of their user profiles, tweet volume, and by examining their activities with online tool <a href="https://botometer.iuni.iu.edu/#!/" target="_blank">Botometer</a>, found out that
               six of them were bot while four were genuine users.</p>
@@ -284,7 +283,7 @@
 
           </article>
 
-          <div class="uk-width-large-1-2 uk-width-medium-1-1 uk-width-small-1-1 uk-container-center uk-scrollable-text uk-scrollable-box" style="height:400px;">
+          <div class="uk-width-large-1-2 uk-width-medium-1-1 uk-width-small-1-1 uk-container-center uk-scrollable-text uk-scrollable-box uk-margin-top uk-margin-bottom" style="height:400px;">
             <a class="twitter-timeline" href="https://twitter.com/MMAfanzine?ref_src=twsrc%5Etfw">Tweets by MMAfanzine</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
@@ -300,7 +299,7 @@
 
           <article class="uk-article">
 
-            <h2>Word Cloud</h2>
+            <h2><strong>Word Cloud</strong></h2>
 
             <p>Undoubtedly Trump took the spotlight in the findings as the word “trump” was the most frequent word appears in the top 80 retweets.</p>
 
@@ -312,7 +311,7 @@
 
           <article class="uk-article">
 
-            <h2>Geolocation</h2>
+            <h2><strong>Geolocation</strong></h2>
 
             <p>A geo-tagged tweet will provide information of at what place the tweet was sent based on coordinates, while “location” can be set by the user. It could be anything besides location, and it is not based on coordinates.</p>
 
@@ -334,7 +333,7 @@
 
           <article class="uk-article">
 
-            <h2>Conclusion</h2>
+            <h2><strong>Conclusion</strong></h2>
 
             <p>The use of the term “fake news” has been polarised by Trump on Twitter as he alone determined the trend of #fakenews on the social media platform.</p>
 
@@ -352,26 +351,27 @@
             <p>The study can be further developed by observing how would those companies deal with the political interference on the social media.</p>
           </article>
 
-          <!-- <ul class="uk-tab uk-tab-grid uk-flex-center uk-tab-bottom" data-uk-tab="{connect:'#analysis', animation: 'uk-animation-fade'}">
-            <li class="uk-width-1-3"><a href="" data-uk-switcher-item="0">#fakenews trend timeline</a></li>
-            <li class="uk-width-1-3"><a href="" data-uk-switcher-item="1">Retweets & quoted tweets</a></li>
-          </ul> -->
         </div>
 
       </li>
     </ul>
 
-
   </div>
 
-  <footer>
-    <ul class="uk-grid">
+  <footer class="uk-container-expand">
+    <ul class="uk-grid" data-uk-grid-margin>
       <li class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-3">
-        <p>Lee Long Hui is a freelance journalist and MA Digital Journalism student at Goldsmiths, University of London.</p>
+        <p>Lee Long Hui is a freelance journalist and MA Digital Journalism student at Goldsmiths, University of London. He understands Twitter from the technical perspective much better now.</p>
       </li>
       <li class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-3"></li>
       <li class="uk-width-large-1-3 uk-width-medium-1-2 uk-width-small-1-3">
-        <p>Connect</p>
+        <div class="uk-display-block uk-margin-bottom">
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="How reports on Trump heated up #fakenews discussion on Twitter?" data-via="leelonghui" data-related="realDonaldTrump" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        <div class="uk-display-block uk-margin-top">
+        <a href="https://twitter.com/leelonghui?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @leelonghui</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+
       </li>
     </ul>
   </footer>
