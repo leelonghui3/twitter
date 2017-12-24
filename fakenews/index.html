@@ -29,9 +29,9 @@
 
     <div class="trump_big_pic uk-background-cover uk-height-medium uk-width-large uk-flex uk-flex-center uk-flex-middle uk-hidden-small uk-hidden-medium">
       <div class="uk-container uk-container-center">
-        <h1 class="title"><strong>#fakenews</strong>:</br> How reports on Trump heated up discussion on Twitter?</h1>
+        <h1 class="title"><strong>Trump hits on media sparked #fakenews discussion on Twitter</strong></h1>
         <h2 class="byline">By <i>Lee Long Hui</i></h2>
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="How reports on Trump heated up #fakenews discussion on Twitter?" data-via="leelonghui" data-related="realDonaldTrump" data-show-count="false">Tweet</a>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Trump hits on media sparked #fakenews discussion on Twitter" data-via="leelonghui" data-related="realDonaldTrump" data-show-count="false">Tweet</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <a href="https://twitter.com/leelonghui?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @leelonghui</a>
         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -39,9 +39,9 @@
     </div>
 
     <div class="uk-hidden-large uk-container uk-container-center">
-      <h1><strong>#fakenews</strong>: </br> How reports on Trump heated up discussion on Twitter?</h1>
+      <h1><strong>Trump hits on media sparked #fakenews discussion on Twitter</strong></h1>
       <h2>By <i>Lee Long Hui</i></h2>
-      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="How reports on Trump heated up #fakenews discussion on Twitter?" data-via="leelonghui" data-related="realDonaldTrump" data-show-count="false">Tweet</a>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="Trump hits on media sparked #fakenews discussion on Twitter" data-via="leelonghui" data-related="realDonaldTrump" data-show-count="false">Tweet</a>
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       <a href="https://twitter.com/leelonghui?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @leelonghui</a>
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -70,7 +70,7 @@
 
         <h2><strong>Methodology</strong></h2>
 
-        <p>The sample of Twitter data containing the word “fake news” and “fakenews” hashtag was collected by using Twitter streaming application programming interface (API) script written in Python between 5pm GMT December 9 and 12am GMT December 14, 2017.</p>
+        <p>The sample of Twitter data containing the word “fake news” and “fakenews” hashtag was collected by using Twitter streaming application programming interface (API) script written in Python between 5pm UTC December 9 and 12am UTC December 14, 2017.</p>
 
         <p>The script was written so that it could distinguish and scrape truncated original tweets, the full text of retweets and quoted tweets (retweets with users’ comment), besides other information, for more precise analysis result.</p>
 
@@ -119,7 +119,7 @@
             </article>
 
             <div class="chart-wrapper">
-              <div id="tweet_timeline"></div>
+              <div id="tweet_timeline" style="height: 550px;"></div>
             </div>
 
             <article class="uk-article">
@@ -160,7 +160,7 @@
             </div>
 
             <p uk-margin>
-              <button class="uk-button uk-button-default"><a href="#analysis-tab">More Analysis</a></button>
+              <a class="uk-button uk-button-primary" href="#analysis-tab" uk-scroll>More Analysis</a>
             </p>
           </div>
         </li>
@@ -267,18 +267,18 @@
             </div>
 
             <p uk-margin>
-              <button class="uk-button uk-button-default"><a href="#analysis-tab">More Analysis</a></button>
+              <a class="uk-button uk-button-primary" href="#analysis-tab" uk-scroll>More Analysis</a>
             </p>
 
           </div>
         </li>
 
         <li>
-          <div class="uk-container uk-margin-top uk-margin-bottom">
+          <div class="uk-margin-top uk-margin-bottom">
 
             <article class="uk-article">
 
-              <h2 class="uk-article-title">Who are the top ten tweeters?</h2>
+              <h2 class="uk-article-title">Who were the top ten tweeters?</h2>
 
               <p>The top ten tweeters were a mix of real users and bot. A study of their user profiles, tweet volume, and by examining their activities with online tool <a href="https://botometer.iuni.iu.edu/#!/" target="_blank">Botometer</a>, found out
                 that six of them were bot while four were genuine users.</p>
@@ -367,7 +367,7 @@
             </article>
 
             <p uk-margin>
-              <button class="uk-button uk-button-default"><a href="#analysis-tab">More Analysis</a></button>
+              <a class="uk-button uk-button-primary" href="#analysis-tab" uk-scroll>More Analysis</a>
             </p>
 
           </div>
@@ -548,11 +548,10 @@
       },
       plotOptions: {
         pie: {
-          // allowPointSelect: true,
-          // cursor: 'pointer',
           dataLabels: {
             enabled: true,
-            format: '{point.name}',
+            format: '{point.name}<br>{point.percentage:.2f}%',
+            distance: -30,
           }
         }
       },
@@ -576,16 +575,13 @@
       pie: {
         dataLabels: {
           enabled: true,
-          distance: -50,
+          distance: -30,
           style: {
             fontWeight: 'bold',
             color: 'white',
             font: 'sans-serif',
           }
-        },
-        startAngle: -90,
-        endAngle: 90,
-        center: ['50%', '75%']
+        }
       },
       title: {
         text: 'Percentage of tweeters with location'
@@ -599,26 +595,25 @@
       },
       plotOptions: {
         pie: {
-          // allowPointSelect: true,
-          // cursor: 'pointer',
+          innerSize: 50,
           dataLabels: {
             enabled: true,
-            format: '{point.name}',
+            format: '{point.name}<br>{point.percentage:.2f}%',
+            distance: -30,
           }
         }
       },
       series: [{
         type: 'pie',
-        // innerSize: '50%',
         name: 'Tweets with location',
         colorByPoint: true,
         data: [{
-          name: 'With location',
+          name: 'With',
           y: 34.29,
           color: '#008837',
           sliced: true,
         }, {
-          name: 'Without location',
+          name: 'Without',
           y: 65.71,
           color: '#a6dba0',
         }]
@@ -626,437 +621,440 @@
     });
 
     Highcharts.chart('retweet_pie', {
-      chart: {
-        type: 'pie'
-      },
-      title: {
-        text: 'Percentage of original, quoted and retweeted tweets'
-      },
-      credits: {
-        text: 'Lee Long Hui',
-        href: 'https://twitter.com/leelonghui'
-      },
-      tooltip: {
-        pointFormat: '{point.percentage:.2f}%'
-      },
-      plotOptions: {
-        pie: {
-          // allowPointSelect: true,
-          // cursor: 'pointer',
-          dataLabels: {
-            enabled: true,
-            format: '{point.name}',
-          }
-        }
-      },
-      series: [{
-        name: 'Tweets',
-        colorByPoint: true,
-        data: [{
-          name: 'Retweeted tweets',
-          color: '#008837',
-          y: 74.88
-        }, {
-          name: 'Original tweets',
-          color: '#a6dba0',
-          y: 16.52
-        }, {
-          name: 'Quoted tweets',
-          color: '#c2a5cf',
-          y: 8.60
-        }]
-      }]
-    });
+          chart: {
+            type: 'pie'
+          },
+          title: {
+            text: 'Percentage of original, quoted and retweeted tweets'
+          },
+          credits: {
+            text: 'Lee Long Hui',
+            href: 'https://twitter.com/leelonghui'
+          },
+          tooltip: {
+            pointFormat: '{point.percentage:.2f}%'
+          },
+          plotOptions: {
+            pie: {
+              // allowPointSelect: true,
+              // cursor: 'pointer',
+              dataLabels: {
+                enabled: true,
+                format: '{point.name}<br>{point.percentage:.2f}%',
+                distance: -45,
+              }
+            }
+          },
+          series: [{
+              name: 'Tweets',
+              colorByPoint: true,
+              data: [{
+                  name: 'Retweeted tweets',
+                  color: '#008837',
+                  y: 74.88
+                }, {
+                  name: 'Original tweets',
+                  color: '#a6dba0',
+                  y: 16.52
+                }, {
+                  name: 'Quoted tweets',
+                  y: 8.60,
+                  dataLabels: {
+                    distance: 30
+                  }
+                }]
+              }]
+          });
 
 
 
-    Highcharts.chart('tweetcloud', {
-      title: {
-        text: '"trump" is the centre of #fakenews Word Cloud'
-      },
-      credits: {
-        text: 'Lee Long Hui',
-        href: 'https://twitter.com/leelonghui'
-      },
-      series: [{
-        type: 'wordcloud',
-        cropThreshold: 100,
-        data: [{
-            "name": "trump",
-            "weight": 22
-          },
-          {
-            "name": "cnn",
-            "weight": 13
-          },
-          {
-            "name": "media",
-            "weight": 9
-          },
-          {
-            "name": "story",
-            "weight": 8
-          },
-          {
-            "name": "moore",
-            "weight": 8
-          },
-          {
-            "name": "journalists",
-            "weight": 7
-          },
-          {
-            "name": "roy",
-            "weight": 7
-          },
-          {
-            "name": "FALSE",
-            "weight": 6
-          },
-          {
-            "name": "people",
-            "weight": 6
-          },
-          {
-            "name": "sexual",
-            "weight": 6
-          },
-          {
-            "name": "just",
-            "weight": 6
-          },
-          {
-            "name": "watch",
-            "weight": 6
-          },
-          {
-            "name": "make",
-            "weight": 6
-          },
-          {
-            "name": "never",
-            "weight": 6
-          },
-          {
-            "name": "time",
-            "weight": 5
-          },
-          {
-            "name": "president",
-            "weight": 5
-          },
-          {
-            "name": "one",
-            "weight": 5
-          },
-          {
-            "name": "does",
-            "weight": 5
-          },
-          {
-            "name": "tell",
-            "weight": 5
-          },
-          {
-            "name": "reporting",
-            "weight": 5
-          },
-          {
-            "name": "press",
-            "weight": 5
-          },
-          {
-            "name": "care",
-            "weight": 4
-          },
-          {
-            "name": "much",
-            "weight": 4
-          },
-          {
-            "name": "wrong",
-            "weight": 4
-          },
-          {
-            "name": "stories",
-            "weight": 4
-          },
-          {
-            "name": "house",
-            "weight": 4
-          },
-          {
-            "name": "women",
-            "weight": 4
-          },
-          {
-            "name": "name",
-            "weight": 4
-          },
-          {
-            "name": "attorneys",
-            "weight": 4
-          },
-          {
-            "name": "truth",
-            "weight": 4
-          },
-          {
-            "name": "being",
-            "weight": 4
-          },
-          {
-            "name": "#maga",
-            "weight": 4
-          },
-          {
-            "name": "fired",
-            "weight": 4
-          },
-          {
-            "name": "TRUE",
-            "weight": 4
-          },
-          {
-            "name": "admitted",
-            "weight": 4
-          },
-          {
-            "name": "know",
-            "weight": 4
-          },
-          {
-            "name": "acosta",
-            "weight": 4
-          },
-          {
-            "name": "get",
-            "weight": 4
-          },
-          {
-            "name": "wife",
-            "weight": 4
-          },
-          {
-            "name": "fire",
-            "weight": 4
-          },
-          {
-            "name": "think",
-            "weight": 4
-          },
-          {
-            "name": "report",
-            "weight": 4
-          },
-          {
-            "name": "calls",
-            "weight": 4
-          },
-          {
-            "name": "jew",
-            "weight": 3
-          },
-          {
-            "name": "take",
-            "weight": 3
-          },
-          {
-            "name": "hours",
-            "weight": 3
-          },
-          {
-            "name": "reporter",
-            "weight": 3
-          },
-          {
-            "name": "day",
-            "weight": 3
-          },
-          {
-            "name": "job",
-            "weight": 3
-          },
-          {
-            "name": "free",
-            "weight": 3
-          },
-          {
-            "name": "mueller",
-            "weight": 3
-          },
-          {
-            "name": "it’s",
-            "weight": 3
-          },
-          {
-            "name": "said",
-            "weight": 3
-          },
-          {
-            "name": "part",
-            "weight": 3
-          },
-          {
-            "name": "good",
-            "weight": 3
-          },
-          {
-            "name": "trusted",
-            "weight": 3
-          },
-          {
-            "name": "see",
-            "weight": 3
-          },
-          {
-            "name": "accusations",
-            "weight": 3
-          },
-          {
-            "name": "kayla",
-            "weight": 3
-          },
-          {
-            "name": "sanders",
-            "weight": 3
-          },
-          {
-            "name": "american",
-            "weight": 3
-          },
-          {
-            "name": "lied",
-            "weight": 3
-          },
-          {
-            "name": "facebook",
-            "weight": 3
-          },
-          {
-            "name": "week",
-            "weight": 3
-          },
-          {
-            "name": "las",
-            "weight": 3
-          },
-          {
-            "name": "yesterday",
-            "weight": 3
-          },
-          {
-            "name": "around",
-            "weight": 3
-          },
-          {
-            "name": "claimed",
-            "weight": 3
-          },
-          {
-            "name": "scan",
-            "weight": 3
-          },
-          {
-            "name": "rally",
-            "weight": 3
-          },
-          {
-            "name": "times",
-            "weight": 3
-          },
-          {
-            "name": "donald",
-            "weight": 3
-          },
-          {
-            "name": "definitely",
-            "weight": 3
-          },
-          {
-            "name": "right",
-            "weight": 3
-          },
-          {
-            "name": "jews",
-            "weight": 3
-          },
-          {
-            "name": "photo",
-            "weight": 3
-          },
-          {
-            "name": "abc",
-            "weight": 3
-          },
-          {
-            "name": "man",
-            "weight": 3
-          },
-          {
-            "name": "called",
-            "weight": 3
-          },
-          {
-            "name": "says",
-            "weight": 3
-          },
-          {
-            "name": "responsible",
-            "weight": 3
-          },
-          {
-            "name": "wh",
-            "weight": 3
-          },
-          {
-            "name": "sarah",
-            "weight": 3
-          },
-          {
-            "name": "misconduct",
-            "weight": 3
-          },
-          {
-            "name": "arena",
-            "weight": 3
-          },
-          {
-            "name": "harassment",
-            "weight": 3
-          },
-          {
-            "name": "read",
-            "weight": 3
-          },
-          {
-            "name": "tv",
-            "weight": 3
-          },
-          {
-            "name": "opinion",
-            "weight": 3
-          },
-          {
-            "name": "white",
-            "weight": 3
-          },
-          {
-            "name": "two",
-            "weight": 3
-          },
-          {
-            "name": "way",
-            "weight": 3
-          },
-          {
-            "name": "outlets",
-            "weight": 3
-          }
-        ],
-        name: 'Occurrences'
-      }]
-    });
+        Highcharts.chart('tweetcloud', {
+          title: {
+            text: '"trump" is the centre of #fakenews Word Cloud'
+          },
+          credits: {
+            text: 'Lee Long Hui',
+            href: 'https://twitter.com/leelonghui'
+          },
+          series: [{
+            type: 'wordcloud',
+            cropThreshold: 100,
+            data: [{
+                "name": "trump",
+                "weight": 22
+              },
+              {
+                "name": "cnn",
+                "weight": 13
+              },
+              {
+                "name": "media",
+                "weight": 9
+              },
+              {
+                "name": "story",
+                "weight": 8
+              },
+              {
+                "name": "moore",
+                "weight": 8
+              },
+              {
+                "name": "journalists",
+                "weight": 7
+              },
+              {
+                "name": "roy",
+                "weight": 7
+              },
+              {
+                "name": "FALSE",
+                "weight": 6
+              },
+              {
+                "name": "people",
+                "weight": 6
+              },
+              {
+                "name": "sexual",
+                "weight": 6
+              },
+              {
+                "name": "just",
+                "weight": 6
+              },
+              {
+                "name": "watch",
+                "weight": 6
+              },
+              {
+                "name": "make",
+                "weight": 6
+              },
+              {
+                "name": "never",
+                "weight": 6
+              },
+              {
+                "name": "time",
+                "weight": 5
+              },
+              {
+                "name": "president",
+                "weight": 5
+              },
+              {
+                "name": "one",
+                "weight": 5
+              },
+              {
+                "name": "does",
+                "weight": 5
+              },
+              {
+                "name": "tell",
+                "weight": 5
+              },
+              {
+                "name": "reporting",
+                "weight": 5
+              },
+              {
+                "name": "press",
+                "weight": 5
+              },
+              {
+                "name": "care",
+                "weight": 4
+              },
+              {
+                "name": "much",
+                "weight": 4
+              },
+              {
+                "name": "wrong",
+                "weight": 4
+              },
+              {
+                "name": "stories",
+                "weight": 4
+              },
+              {
+                "name": "house",
+                "weight": 4
+              },
+              {
+                "name": "women",
+                "weight": 4
+              },
+              {
+                "name": "name",
+                "weight": 4
+              },
+              {
+                "name": "attorneys",
+                "weight": 4
+              },
+              {
+                "name": "truth",
+                "weight": 4
+              },
+              {
+                "name": "being",
+                "weight": 4
+              },
+              {
+                "name": "#maga",
+                "weight": 4
+              },
+              {
+                "name": "fired",
+                "weight": 4
+              },
+              {
+                "name": "TRUE",
+                "weight": 4
+              },
+              {
+                "name": "admitted",
+                "weight": 4
+              },
+              {
+                "name": "know",
+                "weight": 4
+              },
+              {
+                "name": "acosta",
+                "weight": 4
+              },
+              {
+                "name": "get",
+                "weight": 4
+              },
+              {
+                "name": "wife",
+                "weight": 4
+              },
+              {
+                "name": "fire",
+                "weight": 4
+              },
+              {
+                "name": "think",
+                "weight": 4
+              },
+              {
+                "name": "report",
+                "weight": 4
+              },
+              {
+                "name": "calls",
+                "weight": 4
+              },
+              {
+                "name": "jew",
+                "weight": 3
+              },
+              {
+                "name": "take",
+                "weight": 3
+              },
+              {
+                "name": "hours",
+                "weight": 3
+              },
+              {
+                "name": "reporter",
+                "weight": 3
+              },
+              {
+                "name": "day",
+                "weight": 3
+              },
+              {
+                "name": "job",
+                "weight": 3
+              },
+              {
+                "name": "free",
+                "weight": 3
+              },
+              {
+                "name": "mueller",
+                "weight": 3
+              },
+              {
+                "name": "it’s",
+                "weight": 3
+              },
+              {
+                "name": "said",
+                "weight": 3
+              },
+              {
+                "name": "part",
+                "weight": 3
+              },
+              {
+                "name": "good",
+                "weight": 3
+              },
+              {
+                "name": "trusted",
+                "weight": 3
+              },
+              {
+                "name": "see",
+                "weight": 3
+              },
+              {
+                "name": "accusations",
+                "weight": 3
+              },
+              {
+                "name": "kayla",
+                "weight": 3
+              },
+              {
+                "name": "sanders",
+                "weight": 3
+              },
+              {
+                "name": "american",
+                "weight": 3
+              },
+              {
+                "name": "lied",
+                "weight": 3
+              },
+              {
+                "name": "facebook",
+                "weight": 3
+              },
+              {
+                "name": "week",
+                "weight": 3
+              },
+              {
+                "name": "las",
+                "weight": 3
+              },
+              {
+                "name": "yesterday",
+                "weight": 3
+              },
+              {
+                "name": "around",
+                "weight": 3
+              },
+              {
+                "name": "claimed",
+                "weight": 3
+              },
+              {
+                "name": "scan",
+                "weight": 3
+              },
+              {
+                "name": "rally",
+                "weight": 3
+              },
+              {
+                "name": "times",
+                "weight": 3
+              },
+              {
+                "name": "donald",
+                "weight": 3
+              },
+              {
+                "name": "definitely",
+                "weight": 3
+              },
+              {
+                "name": "right",
+                "weight": 3
+              },
+              {
+                "name": "jews",
+                "weight": 3
+              },
+              {
+                "name": "photo",
+                "weight": 3
+              },
+              {
+                "name": "abc",
+                "weight": 3
+              },
+              {
+                "name": "man",
+                "weight": 3
+              },
+              {
+                "name": "called",
+                "weight": 3
+              },
+              {
+                "name": "says",
+                "weight": 3
+              },
+              {
+                "name": "responsible",
+                "weight": 3
+              },
+              {
+                "name": "wh",
+                "weight": 3
+              },
+              {
+                "name": "sarah",
+                "weight": 3
+              },
+              {
+                "name": "misconduct",
+                "weight": 3
+              },
+              {
+                "name": "arena",
+                "weight": 3
+              },
+              {
+                "name": "harassment",
+                "weight": 3
+              },
+              {
+                "name": "read",
+                "weight": 3
+              },
+              {
+                "name": "tv",
+                "weight": 3
+              },
+              {
+                "name": "opinion",
+                "weight": 3
+              },
+              {
+                "name": "white",
+                "weight": 3
+              },
+              {
+                "name": "two",
+                "weight": 3
+              },
+              {
+                "name": "way",
+                "weight": 3
+              },
+              {
+                "name": "outlets",
+                "weight": 3
+              }
+            ],
+            name: 'Occurrences'
+          }]
+        });
   </script>
 </body>
 
