@@ -11,17 +11,18 @@ access_token_secret="NQRaoIIyMVasxPGMWGqf6zzkqUb4afVagmjQVRZ5AvJd0"
 auth = twitter.oauth.OAuth(access_token, access_token_secret, consumer_key, consumer_secret)
 twitter_api = twitter.Twitter(auth=auth)
 
+# open a csv file to store the scraped tweets
 csvfile = open('fakenews.csv', 'w')
 csvwriter = csv.writer(csvfile,delimiter ='|')
 
 csvwriter.writerow(['created_at',
                     'user-id',
-                    'verified',
+                    'verified', # to identify the authentication of the user
                     'user-screen_name',
                     'text',
                     'tweet-id',
-                    'tweet_type',
-                    'full_text',
+                    'tweet_type', # to determine a original tweet, quoted tweet or retweet.
+                    'full_text', # to get the full text of a truncated tweet
                     'user-created_at',
                     'user-followers_count',
                     'user-friends_count',
@@ -43,7 +44,9 @@ print 'Filtering the public timeline for keyword="%s"' % (q)
 twitter_stream = twitter.TwitterStream(auth=twitter_api.auth)
 stream = twitter_stream.statuses.filter(track=q)
 
-''' helper functions, clean data, unpack dictionaries '''
+# helper functions, clean data, unpack dictionaries
+
+# to get the
 def clean(val):
     clean = ""
     if isinstance(val, bool):
@@ -175,6 +178,7 @@ def get_tweet_text(x):
 
     return tweet_msg
 
+# write tweet into csv file
 def write_tweet(tweet):
     csvwriter.writerow([tweet['created_at'],
                         tweet['user']['id'],
