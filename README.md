@@ -8,3 +8,5 @@ The script was written so that it could distinguish and scrape truncated origina
 The analysis focuses on understanding the peaks of the tweets timeline, popular retweets and quoted tweets, percentage of verified users, identifying bots among top 10 tweeters, sentiments etc.
 
 The analysis was done by using Excel and this is the [link](http://igor.gold.ac.uk/~llee003/fakenews/) to the analysis.
+
+It is one of the coursework of the Digital Sandbox module of the MA Digital Journalism course at Goldsmiths, University of London.
