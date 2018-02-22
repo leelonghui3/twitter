@@ -2,10 +2,10 @@
 import twitter, csv, json, sys
 
 # == OAuth Authentication ==
-consumer_key = "HUcXih4iRVgoyV13IqxRlS5BU"
-consumer_secret = "QUcm0AWx75ajw5Ewqepu4b43pXw1QdswpTrCl9VPcvodIPx2jZ"
-access_token = "113197842-iicH3rBNj41yzehS4ke3Ft5BiZW3vcelQj40BVnl"
-access_token_secret = "ijBDkBNxmkVy0JtLsyVaVZOzzIk3KVaD7uX9XB7Tx8x8l"
+consumer_key = ""
+consumer_secret = ""
+access_token = ""
+access_token_secret = ""
 
 auth = twitter.oauth.OAuth(access_token, access_token_secret, consumer_key, consumer_secret)
 twitter_api = twitter.Twitter(auth=auth)
