@@ -1,4 +1,4 @@
-# twitter
+# fakenews
 A tweets scraper written in Python by using Twitter streaming API
 
 The python script was to track the trend of #fakenews on Twitter from 5pm 9/12/2017 to 12am 14/12/2017 by using the Twitter streaming API.
